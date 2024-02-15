@@ -197,37 +197,7 @@ int main(void)
         }
     }
 
-    // char *temps;
-    // char temp[100];
-    // // char temp2[100];
-
-    // int i = 0;
-    // while (i < 2)
-    // {
-    //     fflush(stdin);
-    //     fgets(temp, 100, stdin);
-    //     temps = (char *)malloc(sizeof(char) * MAX_ADDRESS_LEN);
-    //     memcpy(temps, temp, sizeof(temp));
-    //     // strcpy(temps,temp);
-    //     push(stack, temps);
-    //     // free(temps);
-    //     fflush(stdin);
-    //     i++;
-    // }
-
-    // printf("top....: %s\n", pop(stack));
-    // printf("top....: %s\n", pop(stack));
-    // printf("%s\n", pop(stack));
-    // printf("%s\n", pop(stack));
-
-    // printf("dequeued itm: %s\n", dequeue(queue));
-    // printf("dequeued itm: %s\n", dequeue(queue));
-    // printf("dequeued itm: %s\n", dequeue(queue));
-    // printf("dequeued itm: %s\n", dequeue(queue));
-    // printf("dequeued itm: %s\n", dequeue(queue));
-
     free(stack);
     free(queue);
-
     return 0;
 }
