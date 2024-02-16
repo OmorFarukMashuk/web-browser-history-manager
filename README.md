@@ -10,7 +10,7 @@ The objective of this project is to reinforce understanding of data structures, 
 
 1. **Web Browser History Manager**:
 
-* Use the stack and queue implementations from Tasks 2 and 3.
+* Use the stack and queue implementations from Tasks 2 and 2.
 * When a user visits a new web page, push the URL onto the stack and enqueue it into the queue.
 * Implement a menu-based user interface allowing users to:
     1. Visit a new web page and add it to the browsing history.

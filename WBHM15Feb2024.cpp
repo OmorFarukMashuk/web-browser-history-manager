@@ -115,10 +115,9 @@ int main(void)
     printf("\nWelcome to the Web Browser History Manager!\n\n");
 
     struct Stack *stack = (struct Stack *)malloc(sizeof(struct Stack));
-    if (stack != NULL)
-    {
+    stack = NULL;
+
         stack->top = NULL;
-    }
 
     struct Queue *queue = (struct Queue *)malloc(sizeof(struct Queue));
     if (queue != NULL)
@@ -129,6 +128,7 @@ int main(void)
 
     int choice;
     char *urlStr = (char *)"";
+    char inp[MAX_ADDRESS_LEN] = {};
     while (1)
     {
         printf("Menu:\n1. Visit New Web Page\n2. Navigate Backward\n3. Navigate Forward\n4. Display Current Page and History\n5. Exit\n\nEnter your choice: ");
@@ -140,8 +140,8 @@ int main(void)
         {
             printf("Enter the URL of the web page: ");
             fseek(stdin, 0, SEEK_END);
-            // fflush(stdin,0, SEEK_END);
             fgets(inp, MAX_ADDRESS_LEN, stdin);
+            // fflush(stdin);
             inp[strcspn(inp, "\n")] = '\0';
             // inp[strcspn(inp, "\n")] = 0;
             urlStr = (char *)malloc(sizeof(char) * MAX_ADDRESS_LEN);
@@ -176,7 +176,6 @@ int main(void)
             {
                 urlDequeued = dequeue(queue);
                 urlStr = (char *)malloc(sizeof(char) * MAX_ADDRESS_LEN);
-
                 if (urlStr != 0)
                 {
                     memcpy(urlStr, urlDequeued, strlen(urlDequeued) + 1);
@@ -206,6 +205,7 @@ int main(void)
                 i++;
             }
             printf("\n");
+            free(stkPtr);
             printf("Forward History: \n");
             int j = 1;
             QueueNode *qPtr = NULL;
@@ -215,16 +215,13 @@ int main(void)
             }
             while (qPtr != NULL)
             {
-                // printf("%d", sizeof qPtr->url);
-                // fflush(stdout);
-                fseek(stdout, 0, SEEK_END);
                 printf("%d. %s\n", j, qPtr->url);
                 qPtr = qPtr->next;
 
                 j++;
             }
             printf("\n");
-            free(stkPtr);
+
             free(qPtr);
         }
         else if (choice == 5)
@@ -233,6 +230,7 @@ int main(void)
             break;
         }
     }
+
     free(stack);
     free(queue);
     return 0;
